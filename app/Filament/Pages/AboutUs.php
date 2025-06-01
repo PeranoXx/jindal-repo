@@ -4,19 +4,19 @@ namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
 
-class Home extends Page
+class AboutUs extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-home';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
-    protected static string $view = 'filament.pages.home';
+    protected static string $view = 'filament.pages.about-us';
 
-    protected static ?string $navigationGroup = 'Home';
+    protected static ?string $navigationGroup = 'About Us';
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationLabel = 'Home Page';
+    protected static ?string $navigationLabel = 'About Us';
 
-    protected static ?string $title = 'Home';
+    protected static ?string $title = 'About Us';
 
     public static function shouldRegisterNavigation(): bool
     {
@@ -32,4 +32,4 @@ class Home extends Page
     {
         return [];
     }
-}
+} 
