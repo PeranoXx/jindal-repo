@@ -7,7 +7,11 @@ export default {
       './vendor/filament/**/*.blade.php',
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          test: '#1E40AF', 
+        },
+      },
     },
     plugins: [],
   }
