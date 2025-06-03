@@ -38,7 +38,7 @@
     <div class="bg-neutral-950">
         <div class="flex py-2 mx-5 xl:w-7xl xl:mx-auto justify-center">
             <div class="text-gray-200 text-sm">
-              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by ________________ PVT. LTD. &nbsp;&nbsp; Designed By <a class="text-orange-400" href="https://portfolio-parth.vercel.app/" target="_blank">PeranoXx</a>
+              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by JINDAL 777 PVT. LTD. &nbsp;&nbsp; Designed By <a class="text-orange-400" href="https://portfolio-parth.vercel.app/" target="_blank">PeranoXx</a>
             </div>
         </div>
     </div>
