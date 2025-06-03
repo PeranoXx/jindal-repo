@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-14 pb-24" style="background:linear-gradient(131deg, #FFEED8 26.82%, #E8E5FE 96.89%);">
+    <div class="py-14" style="background:linear-gradient(131deg, #FFEED8 26.82%, #E8E5FE 96.89%);">
     <div class="grid grid-cols-1 mx-10 mt-10 lg:mx-20 lg:mt-0 md:grid-cols-2 gap-4 xl:w-7xl xl:mx-auto">
       <div class="">
         <div class="bg-white rounded-4xl p-10 h-full lg:h-60">

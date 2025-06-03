@@ -39,7 +39,7 @@
 <script setup>
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 
 const carouselConfig = {
@@ -91,6 +91,14 @@ onMounted(() => {
       console.error('Error:', error);
     });
 })
+
+watch(isFullscreen, (val) => {
+  if (val) {
+    document.body.classList.add('overflow-hidden');
+  } else {
+    document.body.classList.remove('overflow-hidden');
+  }
+});
 </script>
 
 <style scoped>
