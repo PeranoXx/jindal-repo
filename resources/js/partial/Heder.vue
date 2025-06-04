@@ -36,7 +36,7 @@
                 </div>
                 <div class="hidden flex-1 relative h-12 lg:flex gap-5 lg:gap-10 justify-center items-center px-5 uppercase text-base lg:text-lg">
                     <router-link :to="{ name: 'home'}" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
-                    <router-link :to="{ name: 'home' }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
+                    <router-link :to="{ name: 'about-us' }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
                     <div class="relative inline-block text-left group">
                         <div class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Our Products</div>
                         <div class="absolute mt-2 w-80 bg-white rounded-lg shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition duration-200 z-50">
@@ -53,14 +53,18 @@
     
                                     <div class="absolute top-0 left-full ml-1 w-40 bg-white rounded-lg shadow-md opacity-0 group-hover/item:opacity-100 group-hover/item:visible invisible transition duration-200 z-50">
                                         <ul class="py-1">
-                                            <li class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer" v-for="(sub, sIdx) in child.children" :key="sIdx">{{ sub.label }}</li>
+                                            <router-link v-for="(sub, sIdx) in child.children" :key="sIdx" :to="{ name: 'product', params: {slug :  'spun-poly-yarn-manufecturer-in-india'} }">
+                                            <li class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer" >
+                                                {{ sub.label }}
+                                            </li>
+                                        </router-link>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
+                    <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
                 </div>
                 <div class="flex gap-2 w-52 justify-end">
                     <router-link :to="{ name: 'contact-us'}">
@@ -76,7 +80,7 @@
                         </template>
                     </Button>
                     </router-link>
-                    <Button @click="toggleSidebar" class="block lg:hidden">
+                    <Button @click="toggleSidebar" class="flex lg:hidden">
                         <template #icon>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -130,7 +134,7 @@
                                     <transition name="slide-down">
                                         <ul v-if="child.children && openSub[idx]" class="ml-4 mt-2 space-y-2 text-sm text-gray-600">
                                             <li v-for="(sub, sIdx) in child.children" :key="sIdx">
-                                                <a href="#" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.label }}</a>
+                                                <router-link :to="{ name: 'product', params: {slug : 'test'} }" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.label }}</router-link>
                                             </li>
                                         </ul>
                                     </transition>
@@ -138,7 +142,9 @@
                             </ul>
                         </transition>
                     </li>
-
+                    <li>
+                        <router-link :to="{ name: 'shade-cards' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Shade Cards</router-link>
+                    </li>
                     <li>
                         <router-link :to="{ name: 'home' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Contact Us</router-link>
                     </li>

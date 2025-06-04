@@ -15,13 +15,13 @@
                   <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
+                  <router-link :to="{ name: 'about-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
+                  <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
+                  <router-link :to="{ name: 'contact-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
                 </li>
               </ul>
             </div>

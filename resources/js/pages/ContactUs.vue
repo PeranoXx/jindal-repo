@@ -86,7 +86,7 @@
                             <div class="p-2 w-36 float-right">
                                 <button  @click="submit()" :disabled="submitting">
                                 <Button>
-                                    <span class="hidden lg:block md:mr-2">
+                                    <span class="mr-2">
                                         {{submitting ? 'Submitting...' :  'Submit' }}
                                     </span>
                                     <template #icon>
