@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CarouselResource\Pages;
-use App\Filament\Resources\CarouselResource\RelationManagers;
-use App\Models\Carousel;
+use App\Filament\Resources\TeamResource\Pages;
+use App\Models\Team;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,13 +12,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CarouselResource extends Resource
+class TeamResource extends Resource
 {
-    protected static ?string $model = Carousel::class;
+    protected static ?string $model = Team::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Home'; // 
+    protected static ?string $navigationGroup = 'Home';
 
     public static function shouldRegisterNavigation(): bool
     {
@@ -28,32 +27,38 @@ class CarouselResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Carousel';
+        return 'Team';
     }
 
     public static function getNavigationIcon(): string
     {
-        return 'heroicon-o-photo';
+        return 'heroicon-o-users';
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required()->disk('public')
-                    ->directory('carousels')->visibility('public')->columnSpanFull(),
+                    ->required()
+                    ->disk('public')
+                    ->directory('teams')
+                    ->visibility('public')
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
-                ->options([
-                    true => 'Active',
-                    false => 'Inactive',
-                ])->required() ->native(false)
+                    ->options([
+                        true => 'Active',
+                        false => 'Inactive',
+                    ])
+                    ->required()
+                    ->native(false)
             ]);
     }
 
@@ -61,9 +66,12 @@ class CarouselResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->limit(50)
+                    ->searchable(),
                 Tables\Columns\ToggleColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -99,9 +107,9 @@ class CarouselResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCarousels::route('/'),
-            'create' => Pages\CreateCarousel::route('/create'),
-            'edit' => Pages\EditCarousel::route('/{record}/edit'),
+            'index' => Pages\ListTeams::route('/'),
+            'create' => Pages\CreateTeam::route('/create'),
+            'edit' => Pages\EditTeam::route('/{record}/edit'),
         ];
     }
-}
+} 
