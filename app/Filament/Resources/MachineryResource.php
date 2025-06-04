@@ -40,7 +40,7 @@ class MachineryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
@@ -61,7 +61,7 @@ class MachineryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ToggleColumn::make('status'),
