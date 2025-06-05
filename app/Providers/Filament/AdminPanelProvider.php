@@ -17,8 +17,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use App\Filament\Pages\Home;
-use App\Filament\Pages\AboutUs;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -35,8 +33,6 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->pages([
                 Pages\Dashboard::class,
-                Home::class,
-                AboutUs::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
@@ -63,6 +59,7 @@ class AdminPanelProvider extends PanelProvider
                 'Home',
                 'Products',
                 'About Us',
+                'Contact Us',
             ]);
     }
 }
