@@ -9,7 +9,17 @@ const routes = [
     {
         path: '/about-us',
         name: 'about-us',
-        component:  import('../pages/Home.vue'),
+        component:  import('../pages/AboutUs.vue'),
+    },
+    {
+        path: '/shade-cards',
+        name: 'shade-cards',
+        component:  import('../pages/ShadeCards.vue'),
+    },
+    {
+        path: '/product/:slug',
+        name: 'product',
+        component:  import('../pages/Product.vue'),
     },
     {
         path: '/contact-us',

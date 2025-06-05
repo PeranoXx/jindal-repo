@@ -31,7 +31,9 @@ onMounted(() => {
     window.scrollTo(0, 0);
   }
 
-  document.body.classList.add('overflow-hidden');
+  if(loading.value == true){
+    document.body.classList.add('overflow-hidden');
+  }
 });
 
 watch(loading, (val) => {
