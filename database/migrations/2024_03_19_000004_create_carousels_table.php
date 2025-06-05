@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,4 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('carousels');
     }
-};
+}; 
