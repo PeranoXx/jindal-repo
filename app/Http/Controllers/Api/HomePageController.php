@@ -22,12 +22,12 @@ class HomePageController extends Controller
     {
         try {
             $data = [
-                'carousel' => Carousel::all(),
-                'infrastructure' => Infrastructure::all(),
-                'machinery' => Machinery::all(),
-                'reviews' => Review::all(),
-                'team' => Team::all(),
-                'content' => HomePage::get(),
+                'carousel' => Carousel::where('status', 1)->get(),
+                'infrastructure' => Infrastructure::where('status', 1)->get(),
+                'machinery' => Machinery::where('status', 1)->get(),
+                'reviews' => Review::get(),
+                'team' => Team::where('status', 1)->get(),
+                'home-page' => HomePage::first(),
             ];
 
             return response()->json([

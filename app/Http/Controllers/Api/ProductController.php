@@ -15,22 +15,17 @@ class ProductController extends Controller
     {
         try {
             $categoriesWithProducts = Category::with(['products' => function($query) {
-                $query->select('id', 'name', 'title', 'description', 'image', 'category_id');
+                $query->select('id', 'name', 'title', 'description', 'image', 'category_id', 'slug');
             }])
             ->where('status', true)
             ->get()
             ->map(function ($category) {
-                return [
-                    'category_id' => $category->id,
+                return [    
                     'category_name' => $category->name,
-                    'category_description' => $category->description,
                     'products' => $category->products->map(function ($product) {
                         return [
-                            'id' => $product->id,
-                            'name' => $product->name,
-                            'title' => $product->title,
-                            'description' => $product->description,
-                            'image' => $product->image,
+                            'name' => $product->name ?? null,
+                            'slug' => $product->slug,
                         ];
                     })
                 ];

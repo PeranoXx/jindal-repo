@@ -30,7 +30,7 @@ class HomePageResource extends Resource
             ->schema([
                 TextInput::make('block')->label('Title')
                     ->required(),
-                TinyEditor::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->columnSpanFull()
             ]);
