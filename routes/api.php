@@ -18,10 +18,6 @@ use App\Http\Controllers\Api\ShadeCardController;
 */
 
 
-Route::get('test', function(){
-    dd(1111);
-});
-
 Route::get('/home-page', [HomePageController::class, 'index']);
 
 // Get all categories

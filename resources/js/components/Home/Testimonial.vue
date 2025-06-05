@@ -103,7 +103,7 @@ onMounted(() => {
     .then(data => {
       // Handle the response data
       slides.value = data;
-      console.log(data);
+      // console.log(data);
     })
     .catch(error => {
       // Handle any errors

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Carousel;
+use App\Models\HomePage;
 use App\Models\Infrastructure;
 use App\Models\Machinery;
 use App\Models\Review;
@@ -26,15 +27,16 @@ class HomePageController extends Controller
                 'machinery' => Machinery::all(),
                 'reviews' => Review::all(),
                 'team' => Team::all(),
+                'content' => HomePage::get(),
             ];
 
             return response()->json([
-                'status' => 'success',
+                'status' => true,
                 'data' => $data
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 'error',
+                'status' => false,
                 'message' => 'Failed to fetch homepage data',
                 'error' => $e->getMessage()
             ], 500);

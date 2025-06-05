@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\AboutUsResource\Pages;
 use App\Models\AboutUs;
 use Filament\Forms;
@@ -12,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 
 class AboutUsResource extends Resource
 {
@@ -29,33 +31,11 @@ class AboutUsResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('block')
-                    ->required()
-                    ->options([
-                        'block-1' => 'Block 1',
-                        'block-2' => 'Block 2',
-                        'block-3' => 'Block 3',
-                        'block-4' => 'Block 4',
-                        'block-5' => 'Block 5',
-                    ])
-                    ->native(false),
-                RichEditor::make('description')
+                TextInput::make('block')->label('Title')
+                    ->required(),
+                TinyEditor::make('description')
                     ->required()
                     ->columnSpanFull()
-                    ->toolbarButtons([
-                        'blockquote',
-                        'bold',
-                        'bulletList',
-                        'codeBlock',
-                        'heading',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ]),
             ]);
     }
 

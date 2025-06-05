@@ -4,15 +4,15 @@
       <Slide v-for="slide in slides" :key="slide">
         <div class="carousel__item relative h-full w-full">
           <!-- Image -->
-          <img :src="slide.download_url" alt="" class="w-full h-full object-cover" />
+          <img :src="slide.image_url" alt="" class="w-full h-full object-cover" />
 
           <!-- Dark Overlay -->
           <div class="absolute inset-0 bg-black/50"></div>
 
           <!-- Optional Text On Top -->
-          <div class="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
+          <!-- <div class="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
             {{ slide.title || 'Slide Content' }}
-          </div>
+          </div> -->
         </div>
       </Slide>
 
@@ -64,26 +64,29 @@ import Achievements from '../components/Home/Achievements.vue';
 import Team from '../components/Home/Team.vue';
 import Testimonial from '../components/Home/Testimonial.vue';
 import ContactDetail from '../components/Home/ContactDetail.vue';
+import apiService from '../services/api'
 
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true
 }
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
 const slides = ref([]);
 
-onMounted(() => {
-  fetch('https://picsum.photos/v2/list?page=3&limit=7')
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data
-      slides.value = data;
-      console.log(data);
-    })
-    .catch(error => {
-      // Handle any errors
-      console.error('Error:', error);
-    });
+onMounted(async() => {
+  console.log(BASE_URL);
+  
+  const res = await apiService.getHomePageContent()
+  let data = res.data;
+  console.log(data);
+  
+  if(data.status){
+    slides.value = data.data.carousel
+    console.log(slides.value);
+  }
+  
+  // users.value = res.data
 })
 
 </script>
