@@ -8,9 +8,9 @@
           <p class="text-md sm:text-xl text-neutral-600 font-semibold text-center mb-16 tracking-tight">Our Infrastructure showing our capacity of production and support for each order.</p>
           <div class="">
             <Carousel v-bind="carouselConfig">
-              <Slide v-for="slide in slides" :key="slide">
-                <div class="carousel__item w-full px-6">
-                    <img :src="slide.download_url" alt="" class="w-full h-[250px] object-cover cursor-pointer rounded-md" @click="openFullscreen(slide.download_url)" />
+              <Slide v-for="slide in props.infrastructure" :key="slide">
+                <div class="carousel__item w-full mx-6 relative">
+                    <img :src="slide.image_url" alt="" class="w-full h-auto object-contain cursor-pointer rounded-md" @click="openFullscreen(slide.image_url)" />
 
                   <!-- <div class="bg-white text-center px-2">
                     <h3 class="text-lg font-semibold text-gray-800">{{ slide.title || 'Slide Title' }}</h3>
@@ -39,12 +39,15 @@
 <script setup>
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch, watchEffect } from 'vue';
+
+const props = defineProps(['infrastructure'])
 
 
 const carouselConfig = {
   breakpointMode: 'carousel',
-    height: 250,
+  wrapAround: false,
+    // height: 300,
   // Breakpoints are mobile-first
   // Any settings not specified will fall back to the carousel's default settings
   breakpoints: {
@@ -64,7 +67,6 @@ const carouselConfig = {
   wrapAround: true
 }
 
-const slides = ref([]);
 
 const fullscreenImage = ref(null)
 const isFullscreen = ref(false)
@@ -78,17 +80,8 @@ function closeFullscreen() {
   isFullscreen.value = false
 }
 
-onMounted(() => {
-  fetch('https://picsum.photos/v2/list?page=3&limit=7')
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data
-      slides.value = data;
-    })
-    .catch(error => {
-      // Handle any errors
-      console.error('Error:', error);
-    });
+watchEffect(() => {
+  // console.log(props.infrastructure)
 })
 
 watch(isFullscreen, (val) => {

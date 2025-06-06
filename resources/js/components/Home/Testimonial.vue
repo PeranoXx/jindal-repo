@@ -123,8 +123,8 @@ watch(isFullscreen, (val) => {
 <style scoped>
 
 /* Optional: customize the arrow icons inside buttons */
-::v-deep .carousel__prev svg,
-::v-deep .carousel__next svg {
+:deep(.carousel__prev svg),
+:deep(.carousel__next svg) {
   fill: white;
 }
 </style>

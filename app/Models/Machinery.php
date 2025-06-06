@@ -18,4 +18,10 @@ class Machinery extends Model
         'image',
         'status'
     ];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute(){
+            return asset('storage/'.$this->image);
+    }
 }

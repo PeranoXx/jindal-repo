@@ -8,9 +8,9 @@
           <p class="text-md sm:text-xl text-neutral-600 font-semibold text-center mb-16 tracking-tight">Our Machinery showing our capacity of production with latest Technology.</p>
           <div class="">
             <Carousel v-bind="carouselConfig">
-              <Slide v-for="slide in slides" :key="slide">
+              <Slide v-for="slide in props.machinery" :key="slide">
                 <div class="carousel__item w-full px-6">
-                  <img :src="slide.download_url" alt="" class="w-full h-[250px] object-cover cursor-pointer rounded-md" @click="openFullscreen(slide.download_url)" />
+                  <img :src="slide.image_url" alt="" class="w-full h-[250px] object-cover cursor-pointer rounded-md" @click="openFullscreen(slide.image_url)" />
 
                   <!-- <div class="bg-white text-center px-2">
                     <h3 class="text-lg font-semibold text-gray-800">{{ slide.title || 'Slide Title' }}</h3>
@@ -39,8 +39,8 @@
 <script setup>
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { onMounted, ref, watch } from 'vue';
-
+import { onMounted, ref, watch, watchEffect } from 'vue';
+const props = defineProps(['machinery'])
 
 const carouselConfig = {
   breakpointMode: 'carousel',
@@ -64,7 +64,6 @@ const carouselConfig = {
   wrapAround: true
 }
 
-const slides = ref([]);
 
 const fullscreenImage = ref(null)
 const isFullscreen = ref(false)
@@ -78,17 +77,8 @@ function closeFullscreen() {
   isFullscreen.value = false
 }
 
-onMounted(() => {
-  fetch('https://picsum.photos/v2/list?page=5&limit=7')
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data
-      slides.value = data;
-    })
-    .catch(error => {
-      // Handle any errors
-      console.error('Error:', error);
-    });
+watchEffect(() => {
+  // console.log(props.machinery)
 })
 
 watch(isFullscreen, (val) => {
