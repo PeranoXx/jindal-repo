@@ -9,4 +9,10 @@ class Carousel extends Model
     protected $guarded = ['id'];
 
     protected $fillable = ['title', 'image', 'description', 'status'];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute(){
+            return asset('storage/'.$this->image);
+    }
 }
