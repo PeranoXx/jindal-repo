@@ -26,6 +26,9 @@ Route::get('/categories', [CategoryController::class, 'index']);
 // Get all products by categories
 Route::get('/products-by-categories', [ProductController::class, 'index']);
 
+// single product api
+Route::get('/product/{slug}', [ProductController::class, 'show']);
+
 Route::post('/contact', [ContactUsController::class, 'store']);
 
 // Get all shade cards

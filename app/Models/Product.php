@@ -9,9 +9,7 @@ use Illuminate\Support\Str;
 class Product extends Model
 {
     protected $guarded = ['id'];
-
-    protected $fillable = ['name', 'title', 'description', 'image', 'category_id', 'slug'];
-
+    
     protected $casts = [
         'image' => 'array',
     ];

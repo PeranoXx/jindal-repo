@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 
 class ProductController extends Controller
@@ -42,5 +43,14 @@ class ProductController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+    }
+
+    public function show($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+        return response()->json([
+            'status' => 'success',
+            'data' => $product
+        ], 200);
     }
 } 
