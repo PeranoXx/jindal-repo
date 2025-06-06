@@ -46,7 +46,12 @@ class InfrastructureResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required()->disk('public')
-                    ->directory('carousels')->visibility('public')->columnSpanFull(),
+                    ->directory('infrastructure')->visibility('public')->columnSpanFull()->imageEditor()->imageEditorAspectRatios([
+                        '4:3', // or custom ratio
+                    ])->imageEditorViewportWidth(300) // Optional: preview size
+                    ->imageEditorViewportHeight(300)
+                    ->imageEditorMode(1)->imageResizeMode('cover')
+                    ->imageCropAspectRatio('4:3'), // Forces cropping mode// Lock the aspect ratio
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')

@@ -45,7 +45,12 @@ class TeamResource extends Resource
                     ->disk('public')
                     ->directory('teams')
                     ->visibility('public')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()->imageEditor()->imageEditorAspectRatios([
+                        '1:1', // or custom ratio
+                    ])->imageEditorViewportWidth(300) // Optional: preview size
+                    ->imageEditorViewportHeight(300)
+                    ->imageEditorMode(1)->imageResizeMode('cover')
+                    ->imageCropAspectRatio('1:1'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)

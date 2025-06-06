@@ -97,7 +97,7 @@ const isFullscreen = ref(false)
 
 const galleryConfig = {
     itemsToShow: 1,
-  wrapAround: true,
+    wrapAround: false,
   mouseDrag: true,       // ✅ Enable mouse dragging
   touchDrag: true,       // ✅ Enable touch dragging
   height: 350,

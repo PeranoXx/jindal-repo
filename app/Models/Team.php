@@ -13,4 +13,10 @@ class Team extends Model
     protected $casts = [
         'status' => 'boolean',
     ];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute(){
+            return asset('storage/'.$this->image);
+    }
 } 

@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/{any}', function () {
-//     return view('welcome'); // or your main Vue view
-// })->where('any', '^(?!api).*$');
+Route::get('/{any}', function () {
+    return view('welcome'); // or your main Vue view
+})->where('any', '^(?!api).*$');

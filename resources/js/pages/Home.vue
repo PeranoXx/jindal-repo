@@ -28,15 +28,15 @@
   </section>
 
   <section>
-    <Infrastructure />
+    <Infrastructure :infrastructure="infrastructure" />
   </section>
 
   <section>
-    <Machinery />
+    <Machinery :machinery="machinery" />
   </section>
 
   <section class="relative overflow-hidden">
-    <Team />
+    <Team :teams="teams" />
   </section>
   <section>
     <Testimonial />
@@ -73,6 +73,10 @@ const carouselConfig = {
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 const slides = ref([]);
+const infrastructure = ref([]);
+const machinery = ref([]);
+const teams = ref([]);
+
 
 onMounted(async() => {
   console.log(BASE_URL);
@@ -83,6 +87,9 @@ onMounted(async() => {
   
   if(data.status){
     slides.value = data.data.carousel
+    infrastructure.value = data.data.infrastructure
+    machinery.value = data.data.machinery
+    teams.value = data.data.team
     console.log(slides.value);
   }
   
