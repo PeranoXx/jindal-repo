@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class Product extends Model
 {
     protected $guarded = ['id'];
+    protected $appends = ['image_url'];
     
     protected $casts = [
         'image' => 'array',
@@ -34,5 +35,15 @@ class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    
+
+    public function getImageUrlAttribute(){
+        $data = [];
+        foreach($this->image as $image){
+            $data[] = asset('storage/'.$image);
+        }
+        return $data;
     }
 } 

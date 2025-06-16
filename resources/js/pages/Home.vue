@@ -39,7 +39,7 @@
     <Team :teams="teams" />
   </section>
   <section>
-    <Testimonial />
+    <Testimonial :reviews="reviews" />
   </section>
 
   <section>
@@ -76,21 +76,18 @@ const slides = ref([]);
 const infrastructure = ref([]);
 const machinery = ref([]);
 const teams = ref([]);
+const reviews = ref([])
 
 
 onMounted(async() => {
-  console.log(BASE_URL);
-  
   const res = await apiService.getHomePageContent()
   let data = res.data;
-  console.log(data);
-  
   if(data.status){
     slides.value = data.data.carousel
     infrastructure.value = data.data.infrastructure
     machinery.value = data.data.machinery
     teams.value = data.data.team
-    console.log(slides.value);
+    reviews.value = data.data.reviews
   }
   
   // users.value = res.data

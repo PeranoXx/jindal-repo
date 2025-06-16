@@ -42,9 +42,9 @@
                         <div class="absolute mt-2 w-80 bg-white rounded-lg shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition duration-200 z-50">
                             <ul class="py-1 text-sm">
       
-                                <li class="relative group/item" v-for="(child, idx) in services" :key="idx">
+                                <li class="relative group/item" v-for="(child, idx) in categories" :key="idx">
                                     <div class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer">
-                                        {{ child.label }}
+                                        {{ child.name }}
                                         <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                                         </svg>
@@ -53,9 +53,9 @@
     
                                     <div class="absolute top-0 left-full ml-1 w-40 bg-white rounded-lg shadow-md opacity-0 group-hover/item:opacity-100 group-hover/item:visible invisible transition duration-200 z-50">
                                         <ul class="py-1">
-                                            <router-link v-for="(sub, sIdx) in child.children" :key="sIdx" :to="{ name: 'product', params: {slug :  'spun-poly-yarn-manufecturer-in-india'} }">
+                                            <router-link v-for="(sub, sIdx) in child.products" :key="sIdx" :to="{ name: 'product', params: {slug :  sub.slug} }">
                                             <li class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer" >
-                                                {{ sub.label }}
+                                                {{ sub.name }}
                                             </li>
                                         </router-link>
                                         </ul>
@@ -122,9 +122,9 @@
                         <!-- Dropdown Content -->
                         <transition name="slide-down">
                             <ul v-if="isServicesOpen" class="mt-3 ml-2 space-y-4 border-l border-gray-200 pl-4">
-                                <li v-for="(child, idx) in services" :key="idx">
+                                <li v-for="(child, idx) in categories" :key="idx">
                                     <button @click="toggleSub(idx)" class="w-full text-left flex justify-between items-center text-sm font-medium hover:text-black transition">
-                                        {{ child.label }}
+                                        {{ child.name }}
                                         <svg class="w-3 h-3 transform transition-transform" :class="{ 'rotate-90': openSub[idx] }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -133,8 +133,8 @@
                                     <!-- Sub-Items -->
                                     <transition name="slide-down">
                                         <ul v-if="child.children && openSub[idx]" class="ml-4 mt-2 space-y-2 text-sm text-gray-600">
-                                            <li v-for="(sub, sIdx) in child.children" :key="sIdx">
-                                                <router-link :to="{ name: 'product', params: {slug : 'test'} }" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.label }}</router-link>
+                                            <li v-for="(sub, sIdx) in child.products" :key="sIdx">
+                                                <router-link :to="{ name: 'product', params: {slug : sub.slug} }" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.name }}</router-link>
                                             </li>
                                         </ul>
                                     </transition>
@@ -156,13 +156,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Button from '../components/Button.vue'
 import logo from '../../../public/logo/Jindal_logo.jpg';
+import apiService from '../services/api'
 
 const isOpen = ref(false);
 const isServicesOpen = ref(false)
 const openSub = ref({})
+
+const categories = ref({})
+
+onMounted(async() => {
+    const res = await apiService.getCategories()
+  let data = res.data;
+  if(data.status){
+    categories.value = data.data
+  }
+})
 
 const toggleServices = () => {
     isServicesOpen.value = !isServicesOpen.value
