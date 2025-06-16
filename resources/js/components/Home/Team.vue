@@ -23,7 +23,7 @@ const props = defineProps(['teams'])
 
 
 watchEffect(() => {
-  console.log(props.teams)
+  
 })
 
 </script>

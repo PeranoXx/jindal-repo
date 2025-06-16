@@ -81,7 +81,7 @@ function closeFullscreen() {
 }
 
 watchEffect(() => {
-  // console.log(props.infrastructure)
+ 
 })
 
 watch(isFullscreen, (val) => {
