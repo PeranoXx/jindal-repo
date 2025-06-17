@@ -53,7 +53,7 @@
                             <div class="p-2 w-full">
                                 <div class="relative">
                                     <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                                    <input type="email" v-model="form.email" @input="errors.email = false"  :class="[
+                                    <input type="email" v-model="form.email" @input="errors.email = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.email ? 'border-rose-500' : 'border-gray-300',
                                         'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
@@ -64,7 +64,7 @@
                             <div class="p-2 w-full">
                                 <div class="relative">
                                     <label for="subject" class="leading-7 text-sm text-gray-600">Subject</label>
-                                    <input type="text" v-model="form.subject" @input="errors.subject = false"  :class="[
+                                    <input type="text" v-model="form.subject" @input="errors.subject = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.subject ? 'border-rose-500' : 'border-gray-300',
                                         'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
@@ -75,7 +75,7 @@
                             <div class="p-2 w-full">
                                 <div class="relative">
                                     <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-                                    <textarea v-model="form.message" @input="errors.message = false"   :class="[
+                                    <textarea v-model="form.message" @input="errors.message = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.message ? 'border-rose-500' : 'border-gray-300',
                                         'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out'
@@ -84,21 +84,21 @@
                                 </div>
                             </div>
                             <div class="p-2 w-36 float-right">
-                                <button  @click="submit()" :disabled="submitting">
-                                <Button>
-                                    <span class="mr-2">
-                                        {{submitting ? 'Submitting...' :  'Submit' }}
-                                    </span>
-                                    <template #icon>
-                                        <svg v-if="!submitting" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-                                        </svg>
-                                        <svg v-else  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 animate-spin">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-                                        </svg>
-                                    </template>
-                                </Button>
-                            </button>
+                                <button @click="submit()" :disabled="submitting">
+                                    <Button>
+                                        <span class="mr-2">
+                                            {{ submitting ? 'Submitting...' : 'Submit' }}
+                                        </span>
+                                        <template #icon>
+                                            <svg v-if="!submitting" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                                            </svg>
+                                            <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 animate-spin">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                                            </svg>
+                                        </template>
+                                    </Button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -114,26 +114,26 @@ import Button from '../components/Button.vue';
 import { onMounted, reactive, ref } from 'vue';
 import Map from '../components/Map.vue';
 import apiService from '../services/api'
-import {useToast} from 'vue-toast-notification';
+import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
 const submitting = ref(false)
 const $toast = useToast();
 
 const form = reactive({
-  name: '',
-  contact: '',
-  email: '',
-  subject: '',
-  message: '',
+    name: '',
+    contact: '',
+    email: '',
+    subject: '',
+    message: '',
 });
 
 const errors = reactive({
-  name: false,
-  contact: false,
-  email: false,
-  subject: false,
-  message: false,
+    name: false,
+    contact: false,
+    email: false,
+    subject: false,
+    message: false,
 });
 
 onMounted(() => {
@@ -141,39 +141,41 @@ onMounted(() => {
 })
 
 const validateEmail = (email) => {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 };
 
 const validate = () => {
-  errors.name = !form.name;
+    errors.name = !form.name;
 
-  const contactValid = /^\d{10}$/.test(form.contact || '');
-  errors.contact = !contactValid;
+    const contactValid = /^\d{10}$/.test(form.contact || '');
+    errors.contact = !contactValid;
 
-  errors.email = !form.email || !validateEmail(form.email);
-  errors.subject = !form.subject;
-  errors.message = !form.message;
+    errors.email = !form.email || !validateEmail(form.email);
+    errors.subject = !form.subject;
+    errors.message = !form.message;
 
-  return !Object.values(errors).includes(true);
+    return !Object.values(errors).includes(true);
 };
 
-const submit = async() => {
-  if (validate()) {
-    submitting.value = true;
-    const res = await apiService.contactUs(form)
-    if(res?.data?.data){
-        $toast.success(res?.data?.message)
-    }else{
-        $toast.error(res?.data?.message)
+const submit = async () => {
+    if (validate()) {
+        submitting.value = true;
+        const res = await apiService.contactUs(form)
+        if (res?.data?.data) {
+            $toast.success(res?.data?.message)
+        } else {
+            $toast.error(res?.data?.message)
+        }
+        form.name = '';
+        form.contact = '';
+        form.email = '';
+        form.subject = '';
+        form.message = '';
+        submitting.value = false;
+        // You can proceed with actual submission here
+    } else {
+        console.log('Validation Failed');
     }
-    console.log(res);
-    submitting.value = false;
-    let data = res.data;
-    console.log('Form Submitted:', form);
-    // You can proceed with actual submission here
-  } else {
-    console.log('Validation Failed');
-  }
 };
 </script>
