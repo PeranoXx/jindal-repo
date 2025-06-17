@@ -10,8 +10,3 @@ Route::get('/', function () {
 Route::get('/{any}', function () {
     return view('welcome'); // or your main Vue view
 })->where('any', '^(?!api).*$');
-
-// Route::get('/foo', function () {
-//     // dd(11);
-//     Artisan::call('storage:link');
-// });
