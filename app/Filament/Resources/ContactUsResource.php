@@ -14,6 +14,8 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Filters\SelectFilter;
 
 class ContactUsResource extends Resource
 {
@@ -48,7 +50,7 @@ class ContactUsResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Textarea::make('message')
                     ->required()
-                    ->rows(4)
+                    ->rows(8)
                     ->columnSpanFull(),
             ]);
     }
@@ -72,6 +74,14 @@ class ContactUsResource extends Resource
                 Tables\Columns\TextColumn::make('message')
                     ->limit(50)
                     ->searchable(),
+                    IconColumn::make('seen')
+                    ->icon(fn (bool $state): string => match ($state) {
+                        true => 'heroicon-o-check-circle',
+                        false => 'heroicon-o-clock',
+                    })->color(fn (bool $state): string => match ($state) {
+                        true => 'success', // green
+                        false => 'warning', // yellow/orange
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -82,12 +92,20 @@ class ContactUsResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('seen')
+    ->options([
+        '1' => 'Seen',
+        '0' => 'Unseen',
+    ])
+    ->label('Seen Status')
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->mutateRecordDataUsing(function ($data, $record) {
+                    ContactUs::where('id', $record->id)->update(['seen' => true]);
+                    return $data;
+                }),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -108,7 +126,7 @@ class ContactUsResource extends Resource
         return [
             'index' => Pages\ListContactUs::route('/'),
             'create' => Pages\CreateContactUs::route('/create'),
-            'edit' => Pages\EditContactUs::route('/{record}/edit'),
+            // 'edit' => Pages\EditContactUs::route('/{record}/edit'),
         ];
     }    
 } 

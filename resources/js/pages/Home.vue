@@ -80,6 +80,7 @@ const reviews = ref([])
 
 
 onMounted(async() => {
+  document.title = 'Home - Jindal Thread';
   const res = await apiService.getHomePageContent()
   let data = res.data;
   if(data.status){

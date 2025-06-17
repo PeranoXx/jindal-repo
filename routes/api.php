@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Api\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomePageController;
 use App\Http\Controllers\Api\CategoryController;
@@ -33,3 +35,5 @@ Route::post('/contact', [ContactUsController::class, 'store']);
 
 // Get all shade cards
 Route::get('/shade-cards', [ShadeCardController::class, 'index']);
+
+Route::get('/about-us', [AboutUsController::class, 'aboutUs']);

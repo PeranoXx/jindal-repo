@@ -12,5 +12,11 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 
+
+
+onMounted(() => {
+    document.title = 'Shade Cards - Jindal Thread';
+})
 </script>

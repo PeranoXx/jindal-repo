@@ -117,11 +117,17 @@ const slideTo = (nextSlide) => {
 }
 
 onMounted(async () => {
-  const res = await apiService.getProduct(slug.value)
-  let data = res.data;
-  if (data.status) {
-    product.value = data.data
-    console.log(data.data);
+  document.title = productName(slug.value)+' - Jindal Thread';
+  try {
+    const res = await apiService.getProduct(slug.value)
+    
+    let data = res.data;
+    if (data.status) {
+      product.value = data.data
+      console.log(data.data);
+    }
+  } catch (error) {
+    console.log(error);
   }
 })
 

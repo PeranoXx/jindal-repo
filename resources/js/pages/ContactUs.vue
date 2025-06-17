@@ -10,7 +10,7 @@
 
         <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
             <div class="py-4">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.41709451063!2d72.73988483609048!3d21.15934029880327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1748953403932!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <Map />
             </div>
         </div>
 
@@ -111,15 +111,21 @@
 <script setup>
 import ContactDetail from '../components/Home/ContactDetail.vue';
 import Button from '../components/Button.vue';
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
+import Map from '../components/Map.vue';
+import apiService from '../services/api'
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+
 const submitting = ref(false)
+const $toast = useToast();
 
 const form = reactive({
-  name: 'Parth',
-  contact: '7284900122',
-  email: 'peranoxx@gmail.com',
-  subject: 'Test',
-  message: 'Test',
+  name: '',
+  contact: '',
+  email: '',
+  subject: '',
+  message: '',
 });
 
 const errors = reactive({
@@ -129,6 +135,10 @@ const errors = reactive({
   subject: false,
   message: false,
 });
+
+onMounted(() => {
+    document.title = 'Contact Us - Jindal Thread';
+})
 
 const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -148,12 +158,18 @@ const validate = () => {
   return !Object.values(errors).includes(true);
 };
 
-const submit = () => {
+const submit = async() => {
   if (validate()) {
     submitting.value = true;
-    setTimeout(() => {
+    const res = await apiService.contactUs(form)
+    if(res?.data?.data){
+        $toast.success(res?.data?.message)
+    }else{
+        $toast.error(res?.data?.message)
+    }
+    console.log(res);
     submitting.value = false;
-    }, 5000);
+    let data = res.data;
     console.log('Form Submitted:', form);
     // You can proceed with actual submission here
   } else {

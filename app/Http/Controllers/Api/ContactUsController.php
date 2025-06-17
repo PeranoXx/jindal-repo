@@ -14,7 +14,7 @@ class ContactUsController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'contact' => 'required|string|max:20',
+            'contact' => 'required|string|max:10',
             'subject' => 'required|string|max:255',
             'message' => 'required|string'
         ]);
@@ -22,9 +22,9 @@ class ContactUsController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
-                'message' => 'Validation Error',
+                'message' => $validator->errors()->first(),
                 'errors' => $validator->errors()
-            ], 422);
+            ], 200);
         }
 
         try {
