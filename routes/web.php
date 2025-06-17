@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::get('/{any}', function () {
     return view('welcome'); // or your main Vue view
 })->where('any', '^(?!api).*$');
+
