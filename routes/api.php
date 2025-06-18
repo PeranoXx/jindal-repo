@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AboutUsController;
+use App\Http\Controllers\Api\AchivementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomePageController;
 use App\Http\Controllers\Api\CategoryController;
@@ -37,3 +38,5 @@ Route::post('/contact', [ContactUsController::class, 'store']);
 Route::get('/shade-cards', [ShadeCardController::class, 'index']);
 
 Route::get('/about-us', [AboutUsController::class, 'aboutUs']);
+
+Route::get('/achivement', [AchivementController::class, 'index']);
