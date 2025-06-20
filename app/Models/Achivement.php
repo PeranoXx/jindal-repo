@@ -6,9 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Achivement extends Model
 {
-    protected $fillable = [
-        'title',
-        'description',
-        'status',
-    ];
+    protected $guarded = ['id'];
 }

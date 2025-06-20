@@ -29,7 +29,9 @@ class AchivementResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\TextInput::make('achivement_number')
+                    ->required()
+                    ->numeric()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
                     ->options([
@@ -46,16 +48,18 @@ class AchivementResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('description')->limit(50)->searchable(),
+                Tables\Columns\TextColumn::make('achivement_number')->searchable(),
                 Tables\Columns\TextColumn::make('status')->formatStateUsing(fn($state) => $state ? 'Active' : 'Inactive')->sortable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
