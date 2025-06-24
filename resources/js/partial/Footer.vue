@@ -1,5 +1,5 @@
 <template>
-     <div class="bg-neutral-900 py-20">
+     <div class="bg-neutral-900 py-10 xl:py-20">
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="flex flex-col lg:flex-row gap-15 lg:gap-30 justify-between">
           <div class="text-4xl  text-white pt-10">

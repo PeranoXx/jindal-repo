@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <div class="bg-neutral-50 py-20">
+      <div class="bg-neutral-200/70 py-20">
         <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
           <div class="bg-white rounded-3xl py-16 md:py-20 px-4 md:px-10">
             <div class="block lg:flex">

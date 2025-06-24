@@ -1,5 +1,5 @@
 <template>
-     <div class="py-24">
+     <div class="py-10 xl:py-20">
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
           <div class="shadow px-10 py-6 rounded-md flex-1">
