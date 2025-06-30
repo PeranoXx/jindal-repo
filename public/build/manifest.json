@@ -1,13 +1,13 @@
 {
-  "_ContactDetail-D5MYnUTM.js": {
-    "file": "assets/ContactDetail-D5MYnUTM.js",
+  "_ContactDetail-DBwOBOyn.js": {
+    "file": "assets/ContactDetail-DBwOBOyn.js",
     "name": "ContactDetail",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_carousel-Civbbmpk.js": {
-    "file": "assets/carousel-Civbbmpk.js",
+  "_carousel-omLuG4Ux.js": {
+    "file": "assets/carousel-omLuG4Ux.js",
     "name": "carousel",
     "imports": [
       "resources/js/app.js"
@@ -18,7 +18,7 @@
     "src": "public/logo/Jindal_logo.jpg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DNl1YujM.css",
+    "file": "assets/app-DhXyUe8h.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -35,7 +35,7 @@
     "src": "resources/fonts/Supreme-Regular.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-k0drPX2k.js",
+    "file": "assets/app-Dc_Im3b1.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -54,7 +54,7 @@
     ]
   },
   "resources/js/pages/AboutUs.vue": {
-    "file": "assets/AboutUs-D-P220-P.js",
+    "file": "assets/AboutUs-BRG6gj6O.js",
     "name": "AboutUs",
     "src": "resources/js/pages/AboutUs.vue",
     "isDynamicEntry": true,
@@ -66,47 +66,47 @@
     ]
   },
   "resources/js/pages/ContactUs.vue": {
-    "file": "assets/ContactUs-BcsOx2Mv.js",
+    "file": "assets/ContactUs-C9jcyWsE.js",
     "name": "ContactUs",
     "src": "resources/js/pages/ContactUs.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_ContactDetail-D5MYnUTM.js"
+      "_ContactDetail-DBwOBOyn.js"
     ],
     "css": [
       "assets/ContactUs-CM0PU-wP.css"
     ]
   },
   "resources/js/pages/Home.vue": {
-    "file": "assets/Home-hsIa5ew5.js",
+    "file": "assets/Home-BWcgKhcP.js",
     "name": "Home",
     "src": "resources/js/pages/Home.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_carousel-Civbbmpk.js",
-      "_ContactDetail-D5MYnUTM.js"
+      "_carousel-omLuG4Ux.js",
+      "_ContactDetail-DBwOBOyn.js"
     ],
     "css": [
       "assets/Home-BOzpDCEs.css"
     ]
   },
   "resources/js/pages/Product.vue": {
-    "file": "assets/Product-fCeQD3RK.js",
+    "file": "assets/Product-C7xxenca.js",
     "name": "Product",
     "src": "resources/js/pages/Product.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_carousel-Civbbmpk.js"
+      "_carousel-omLuG4Ux.js"
     ],
     "css": [
       "assets/Product-FmMSaR0j.css"
     ]
   },
   "resources/js/pages/ShadeCards.vue": {
-    "file": "assets/ShadeCards-DDmln-e5.js",
+    "file": "assets/ShadeCards-BAs-CbFN.js",
     "name": "ShadeCards",
     "src": "resources/js/pages/ShadeCards.vue",
     "isDynamicEntry": true,
