@@ -3,12 +3,15 @@
     'bg-white absolute z-50 top-0 w-full h-screen flex justify-center items-center transition-transform duration-700',
     !loading ? '-translate-y-full' : 'translate-y-0'
   ]">
-    <div class="loader"></div>
+    <!-- <div class="loader"></div> -->
+    <img :src="logo" alt="logo" class="w-1/2">
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref, watch } from 'vue';
+import logo from '../../../public/logo/Jindal_logo.jpg';
+
 
 const loading = ref(sessionStorage.getItem('load') ? false : true);
 const showLoader = ref(true);

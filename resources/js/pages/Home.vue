@@ -4,10 +4,29 @@
       <Slide v-for="slide in slides" :key="slide">
         <div class="carousel__item relative h-full w-full">
           <!-- Image -->
-          <img :src="slide.image_url" alt="" class="w-full h-full object-cover" />
+          <img 
+            :src="slide.image_url" 
+            :alt="slide.title || 'Carousel image'" 
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            @load="handleImageLoad"
+            @error="handleImageError"
+          />
 
           <!-- Dark Overlay -->
-          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="absolute inset-0 bg-black/50">
+          <div class="absolute inset-0 flex items-center justify-start" style="transform: translateY(-10%);">
+            <div class="text-left text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+                {{ slide.title }}
+              </h1>
+              <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium max-w-2xl sm:max-w-3xl md:max-w-4xl leading-relaxed opacity-90 ">
+                {{ slide.description }}
+              </p>
+            </div>
+          </div>
+          </div>
 
           <!-- Optional Text On Top -->
           <!-- <div class="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">

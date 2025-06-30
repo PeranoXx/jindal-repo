@@ -51,7 +51,7 @@ class MachineryResource extends Resource
                     ])->imageEditorViewportWidth(300) // Optional: preview size
                     ->imageEditorViewportHeight(300)
                     ->imageEditorMode(1)->imageResizeMode('cover')
-                    ->imageCropAspectRatio('4:3'), // Forces cropping mode// Lock the aspect ratio
+                    ->imageCropAspectRatio('4:3')->optimize('webp'), // Forces cropping mode// Lock the aspect ratio
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')

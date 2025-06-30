@@ -19,6 +19,7 @@
                 easing="linear"
                 :key="animate + '-' + index"
               />
+              <span v-if="animate">+</span>
             </div>
             <div class="text-2xl lg:text-xl xl:text-2xl text-neutral-600">
              {{ item.title }}

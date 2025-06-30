@@ -58,7 +58,7 @@ class ProductResource extends Resource
                     ->disk('public')
                     ->directory('products')
                     ->visibility('public')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()->optimize('webp'),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required()

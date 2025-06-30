@@ -34,7 +34,7 @@ class ProductsRelationManager extends RelationManager
                     ->disk('public')
                     ->directory('products')
                     ->visibility('public')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()->optimize('webp'),
             ]);
     }
 
