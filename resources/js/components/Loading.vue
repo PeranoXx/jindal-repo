@@ -3,8 +3,8 @@
     'bg-white absolute z-50 top-0 w-full h-screen flex justify-center items-center transition-transform duration-700',
     !loading ? '-translate-y-full' : 'translate-y-0'
   ]">
-    <!-- <div class="loader"></div> -->
-    <img :src="logo" alt="logo" class="w-1/2">
+    <div class="loader"></div>
+    <!-- <img :src="logo" alt="logo" class="w-1/2"> -->
   </div>
 </template>
 
@@ -66,7 +66,7 @@ watch(loading, (val) => {
 }
 
 .loader:before {
-  content: "Loading";
+  content: "JINDAL777";
 }
 
 @keyframes l9 {

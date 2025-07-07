@@ -35,15 +35,15 @@
                     </router-link>
                 </div>
                 <div class="hidden flex-1 relative h-12 lg:flex gap-5 lg:gap-10 justify-center items-center px-5 uppercase text-base lg:text-lg">
-                    <router-link :to="{ name: 'home'}" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
-                    <router-link :to="{ name: 'about-us' }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
+                    <router-link :to="{ name: 'home'}" class="relative after:bg-fun-blue-500 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
+                    <router-link :to="{ name: 'about-us' }" class="relative after:bg-fun-blue-500 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
                     <div class="relative inline-block text-left group">
-                        <div class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Our Products</div>
+                        <div class="relative after:bg-fun-blue-500 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Our Products</div>
                         <div class="absolute mt-2 w-80 bg-white rounded-lg shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition duration-200 z-50">
                             <ul class="py-1 text-sm">
       
                                 <li class="relative group/item" v-for="(child, idx) in categories" :key="idx">
-                                    <div class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer">
+                                    <div class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-fun-blue-500 cursor-pointer">
                                         {{ child.name }}
                                         <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -54,7 +54,7 @@
                                     <div class="absolute top-0 left-full ml-1 w-40 bg-white rounded-lg shadow-md opacity-0 group-hover/item:opacity-100 group-hover/item:visible invisible transition duration-200 z-50">
                                         <ul class="py-1">
                                             <router-link v-for="(sub, sIdx) in child.products" :key="sIdx" :to="{ name: 'product', params: {slug :  sub.slug} }">
-                                            <li class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-orange-400 cursor-pointer" >
+                                            <li class="px-4 py-2 text-black flex justify-between items-center relative hover:border-l-2 border-fun-blue-500 cursor-pointer" >
                                                 {{ sub.name }}
                                             </li>
                                         </router-link>
@@ -64,7 +64,7 @@
                             </ul>
                         </div>
                     </div>
-                    <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-orange-400 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
+                    <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-fun-blue-500 hover:font-bold transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
                 </div>
                 <div class="flex gap-2 w-52 justify-end">
                     <router-link :to="{ name: 'contact-us'}">

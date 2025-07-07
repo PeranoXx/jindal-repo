@@ -1,5 +1,5 @@
 <template>
-     <div class="bg-neutral-900 py-10 xl:py-20">
+     <div class="bg-custom py-10 xl:py-20">
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="flex flex-col lg:flex-row gap-15 lg:gap-30 justify-between">
           <div class="text-4xl  text-white pt-10">
@@ -12,16 +12,16 @@
             <div class="py-4">
               <ul class="text-white">
                 <li class="py-2">
-                  <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
+                  <router-link :to="{ name: 'home', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'about-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
+                  <router-link :to="{ name: 'about-us', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
+                  <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'contact-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
+                  <router-link :to="{ name: 'contact-us', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
                 </li>
               </ul>
             </div>
@@ -38,7 +38,7 @@
     <div class="bg-neutral-950">
         <div class="flex py-2 mx-5 xl:w-7xl xl:mx-auto justify-center">
             <div class="text-gray-200 text-sm">
-              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by JINDAL 777 PVT. LTD. &nbsp;&nbsp; Designed By <a class="text-orange-400" href="https://portfolio-parth.vercel.app/" target="_blank">PeranoXx</a>
+              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by JINDAL 777 PVT. LTD. &nbsp;&nbsp; Designed and Developed By <a class="text-fun-blue-500" href="https://portfolio-parth.vercel.app/" target="_blank">Parth Vakharia</a> & Vansh Vakharia
             </div>
         </div>
     </div>
@@ -48,3 +48,10 @@
 import logo from '../../../public/logo/Jindal_logo.jpg';
 
 </script>
+
+<style scoped>
+.bg-custom{
+  background: #104E94;
+  background: linear-gradient(90deg,rgba(16, 78, 148, 1) 0%, rgba(13, 36, 68, 1) 100%);
+}
+</style>

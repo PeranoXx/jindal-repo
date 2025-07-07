@@ -3,7 +3,7 @@
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <!-- <div class="bg-white rounded-3xl py-16 md:py-20 px-4 md:px-10"> -->
           <div class="flex justify-center">
-            <span class="text-white text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-orange-400">WHAT PEOPLE SAYS</span>
+            <span class="text-white text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-fun-blue-500">WHAT PEOPLE SAYS</span>
           </div>
           <p class="text-md sm:text-xl text-neutral-300 font-semibold text-center mb-16 tracking-tight">Individual thoughts about us, Always Delivering More Than Expected.</p>
           <div class="">
@@ -33,7 +33,7 @@
                     <p>"{{ review.description }}"</p>
                     <div class="flex gap-3 pt-6">
                       <div>
-                       <div class="bg-orange-400 w-10 h-10 rounded-full flex justify-center items-center text-lg">P</div> 
+                       <div class="bg-fun-blue-500 w-10 h-10 rounded-full flex justify-center items-center text-lg">P</div> 
                       </div>
                       <div>
                         <span class="p-0 m-0 block leading-none ">{{ review.name }}</span>

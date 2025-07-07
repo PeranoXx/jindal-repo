@@ -3,7 +3,7 @@
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="bg-white rounded-3xl py-16 md:py-20 px-4 md:px-10">
           <div class="flex justify-center">
-            <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-orange-400">Our Machinery</span>
+            <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-fun-blue-500">Our Machinery</span>
           </div>
           <p class="text-md sm:text-xl text-neutral-600 font-semibold text-center mb-16 tracking-tight">Our Machinery showing our capacity of production with latest Technology.</p>
           <div class="">

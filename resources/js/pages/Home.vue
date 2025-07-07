@@ -1,45 +1,42 @@
 <template>
   <div class="relative ">
-    <Carousel v-bind="carouselConfig" class="!h-auto md:!h-[500px] xl:!h-[700px] bg-gray-100">
-      <Slide v-for="slide in slides" :key="slide">
-        <div class="carousel__item relative h-full w-full">
-          <!-- Image -->
-          <img 
-            :src="slide.image_url" 
-            :alt="slide.title || 'Carousel image'" 
-            class="w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-            @load="handleImageLoad"
-            @error="handleImageError"
-          />
+    <Carousel v-bind="carouselConfig" @slide-start="onSlideStart" @slide-end="onSlideEnd" class="!h-auto md:!h-[500px] xl:!h-[700px] bg-gray-100">
+    <Slide v-for="(slide, index) in slides" :key="index">
+      <div class="carousel__item relative h-full w-full">
+        <!-- Image -->
+        <img 
+          :src="slide.image_url" 
+          :alt="slide.title || 'Carousel image'" 
+          class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          @load="handleImageLoad"
+          @error="handleImageError"
+        />
 
-          <!-- Dark Overlay -->
-          <div class="absolute inset-0 bg-black/50">
-          <div class="absolute inset-0 flex items-center justify-start" style="transform: translateY(-10%);">
-            <div class="text-left text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                {{ slide.title }}
-              </h1>
-              <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium max-w-2xl sm:max-w-3xl md:max-w-4xl leading-relaxed opacity-90 ">
-                {{ slide.description }}
-              </p>
-            </div>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50">
+          <div class="absolute inset-0 flex items-center justify-start" style="transform: translateY(-10%) translateX(15%);">
+            <transition name="fade-slide" mode="out-in">
+              <div v-if="index === currentIndex" :key="index" class="text-left text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+                  {{ slide.title }}
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium max-w-2xl sm:max-w-3xl md:max-w-4xl leading-relaxed opacity-90">
+                  {{ slide.description }}
+                </p>
+              </div>
+            </transition>
           </div>
-          </div>
-
-          <!-- Optional Text On Top -->
-          <!-- <div class="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-            {{ slide.title || 'Slide Content' }}
-          </div> -->
         </div>
-      </Slide>
+      </div>
+    </Slide>
 
-      <template #addons>
-        <Navigation />
-        <Pagination />
-      </template>
-    </Carousel>
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
   </div>
 
   <section>
@@ -54,9 +51,9 @@
     <Machinery :machinery="machinery" />
   </section>
 
-  <section class="relative overflow-hidden">
+  <!-- <section class="relative overflow-hidden">
     <Team :teams="teams" />
-  </section>
+  </section> -->
   <section>
     <Testimonial :reviews="reviews" />
   </section>
@@ -87,7 +84,8 @@ import apiService from '../services/api'
 
 const carouselConfig = {
   itemsToShow: 1,
-  wrapAround: true
+  wrapAround: true,
+  autoplay: 5000,
 }
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
@@ -98,8 +96,23 @@ const teams = ref([]);
 const reviews = ref([])
 const achievements = ref([])
 
+const currentIndex = ref(null)
+
+function onSlideStart(index) {
+  console.log(index);
+  
+  
+}
+
+function onSlideEnd(index) {
+  console.log(index);
+  currentIndex.value = index.currentSlideIndex
+  
+  // Optional: debounce or extra logic
+}
 
 onMounted(async() => {
+ 
   document.title = 'Home - Jindal Thread';
   const res = await apiService.getHomePageContent()
   let data = res.data;
@@ -111,7 +124,9 @@ onMounted(async() => {
     reviews.value = data.data.reviews
     achievements.value = data.data.achievements
   }
-  
+  setTimeout(() => {
+    currentIndex.value = 0
+  }, 100);
   // users.value = res.data
 })
 
@@ -141,6 +156,19 @@ onMounted(async() => {
 .fade-zoom-leave-to {
   opacity: 0;
   transform: scale(0.9);
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.5s ease;
+}
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 </style>
