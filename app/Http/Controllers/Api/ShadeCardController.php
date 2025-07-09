@@ -10,8 +10,7 @@ class ShadeCardController extends Controller
 {
     public function index(): JsonResponse
     {
-        $shadeCards = ShadeCard::all();
-        
+        $shadeCards = ShadeCard::paginate(52); 
         return response()->json([
             'status' => 'success',
             'data' => $shadeCards,

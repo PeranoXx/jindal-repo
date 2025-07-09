@@ -30,11 +30,11 @@
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                     >
                     
-                        <div class="aspect-w-1 aspect-h-1 bg-gray-100">
+                        <div class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
                             <img 
-                                :src="data.image" 
+                                :src="`/storage/${data.image}`" 
                                 :alt="`Shade Card ${data.number}`"
-                                class="w-full h-48 object-cover"
+                                class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                                 @error="handleImageError"
                             />
                         </div>
@@ -52,6 +52,24 @@
                 <div v-if="!loading && !error && shadeCards.length === 0" class="text-center py-16">
                     <p class="text-gray-600 text-lg">No shade cards found.</p>
                 </div>
+                <div v-if="lastPage > 1" class="flex justify-center mt-8 space-x-2">
+                    <button
+                        :disabled="currentPage === 1"
+                        @click="fetchShadeCards(currentPage - 1)"
+                        class="px-3 py-1 rounded bg-blue-400 text-white disabled:opacity-50"
+                    >Prev</button>
+                    <button
+                        v-for="page in lastPage"
+                        :key="page"
+                        @click="fetchShadeCards(page)"
+                        :class="['px-3 py-1 rounded', currentPage === page ? 'bg-blue-600 text-white' : 'bg-blue-200 text-blue-800']"
+                    >{{ page }}</button>
+                    <button
+                        :disabled="currentPage === lastPage"
+                        @click="fetchShadeCards(currentPage + 1)"
+                        class="px-3 py-1 rounded bg-blue-400 text-white disabled:opacity-50"
+                    >Next</button>
+                </div>
             </div>
         </div>
     </section>
@@ -64,27 +82,22 @@ import { ref, onMounted } from 'vue';
 const shadeCards = ref([]);
 const loading = ref(true);
 const error = ref(null);
+const currentPage = ref(1);
+const lastPage = ref(1);
 
 // Fetch shade cards data
-const fetchShadeCards = async () => {
+const fetchShadeCards = async (page = 1) => {
     try {
         loading.value = true;
         error.value = null;
-        
-        const response = await fetch('/api/shade-cards');
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch shade cards');
-        }
-        
+        const response = await fetch(`/api/shade-cards?page=${page}`);
+        if (!response.ok) throw new Error('Failed to fetch shade cards');
         const data = await response.json();
-        shadeCards.value = data;
-        console.log(shadeCards.value.data[0].number);
-        
-        
+        shadeCards.value = data.data.data; // paginated data
+        currentPage.value = data.data.current_page;
+        lastPage.value = data.data.last_page;
     } catch (err) {
         error.value = err.message || 'An error occurred while fetching shade cards';
-        console.error('Error fetching shade cards:', err);
     } finally {
         loading.value = false;
     }
