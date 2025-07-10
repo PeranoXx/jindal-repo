@@ -35,7 +35,7 @@ class ShadeCardResource extends Resource
                     ->image()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('16:9')
-                    ->directory('Jindal-shade-card-image'),
+                    ->directory('Jindal-shade-card-image')->optimize('webp'),
             ]);
     }
 

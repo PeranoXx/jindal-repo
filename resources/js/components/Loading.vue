@@ -4,11 +4,14 @@
     !loading ? '-translate-y-full' : 'translate-y-0'
   ]">
     <div class="loader"></div>
+    <!-- <img :src="logo" alt="logo" class="w-1/2"> -->
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref, watch } from 'vue';
+import logo from '../../../public/logo/Jindal_logo.jpg';
+
 
 const loading = ref(sessionStorage.getItem('load') ? false : true);
 const showLoader = ref(true);
@@ -63,7 +66,7 @@ watch(loading, (val) => {
 }
 
 .loader:before {
-  content: "Loading";
+  content: "JINDAL777";
 }
 
 @keyframes l9 {

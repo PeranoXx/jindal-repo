@@ -1,16 +1,16 @@
 <template>
-    <div class="bg-neutral-50 py-20">
+    <div class="bg-neutral-200/60 py-10 xl:py-20">
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="bg-white rounded-3xl py-16 md:py-20 px-4 md:px-10">
           <div class="flex justify-center">
-            <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-orange-400">Our Infrastructure</span>
+            <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-fun-blue-500">Our Infrastructure</span>
           </div>
           <p class="text-md sm:text-xl text-neutral-600 font-semibold text-center mb-16 tracking-tight">Our Infrastructure showing our capacity of production and support for each order.</p>
           <div class="">
             <Carousel v-bind="carouselConfig">
               <Slide v-for="slide in props.infrastructure" :key="slide">
                 <div class="carousel__item w-full mx-6 relative">
-                    <img :src="slide.image_url" alt="" class="w-full h-auto object-contain cursor-pointer rounded-md" @click="openFullscreen(slide.image_url)" />
+                    <img :src="slide.image_url" alt="" class="w-full h-[250px] object-cover cursor-pointer rounded-md" @click="openFullscreen(slide.image_url)" />
 
                   <!-- <div class="bg-white text-center px-2">
                     <h3 class="text-lg font-semibold text-gray-800">{{ slide.title || 'Slide Title' }}</h3>
@@ -47,7 +47,7 @@ const props = defineProps(['infrastructure'])
 const carouselConfig = {
   breakpointMode: 'carousel',
   wrapAround: false,
-    // height: 300,
+    height: 250,
   // Breakpoints are mobile-first
   // Any settings not specified will fall back to the carousel's default settings
   breakpoints: {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Achivement;
 use App\Models\Carousel;
 use App\Models\HomePage;
 use App\Models\Infrastructure;
@@ -28,6 +29,7 @@ class HomePageController extends Controller
                 'reviews' => Review::get(),
                 'team' => Team::where('status', 1)->get(),
                 'home-page' => HomePage::first(),
+                'achievements' => Achivement::where('status', 1)->get(),
             ];
 
             return response()->json([

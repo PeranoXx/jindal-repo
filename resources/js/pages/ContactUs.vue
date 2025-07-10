@@ -1,9 +1,9 @@
 <template>
     <section>
-        <div class="py-24" style="background:linear-gradient(131deg, #E8E5FE 26.82%, #FFEED8 96.89%);">
+        <div class="py-24" style="background:linear-gradient(131deg, rgb(216 226 255) 26.82%, rgb(232, 229, 254) 96.89%);">
             <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
                 <div class="flex justify-center">
-                    <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-orange-400">Contact Us</span>
+                    <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-fun-blue-500">Contact Us</span>
                 </div>
             </div>
         </div>
@@ -18,11 +18,11 @@
             <ContactDetail />
         </div>
 
-        <div class="bg-neutral-50 py-20">
+        <div class="bg-neutral-200/70 py-20">
             <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
                 <div class="bg-white rounded-3xl py-16 md:py-20 px-4 md:px-10">
                     <div class="flex justify-center">
-                        <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-orange-400">Leave Comment</span>
+                        <span class="text-4xl sm:text-6xl xl:text-6xl font-semibold mb-5 sm:mb-8 py-4 text-center max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto font-heading border-b-4 border-fun-blue-500">Leave Comment</span>
                     </div>
 
                     <div class="mx-auto lg:w-2/3 md:w-2/3">
@@ -33,7 +33,7 @@
                                     <input type="text" v-model="form.name" @input="errors.name = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.name ? 'border-rose-500' : 'border-gray-300',
-                                        'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                        'focus:border-fun-blue-500 focus:bg-white focus:ring-2 focus:ring-fun-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
                                     ]" />
                                     <p v-if="errors.name" class="text-red-500 text-sm mt-1">Name is required.</p>
 
@@ -45,7 +45,7 @@
                                     <input type="text" v-model="form.contact" @input="errors.contact = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.contact ? 'border-rose-500' : 'border-gray-300',
-                                        'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                        'focus:border-fun-blue-500 focus:bg-white focus:ring-2 focus:ring-fun-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
                                     ]" />
                                     <p v-if="errors.contact" class="text-red-500 text-sm mt-1">Contact must be a 10-digit number.</p>
                                 </div>
@@ -56,7 +56,7 @@
                                     <input type="email" v-model="form.email" @input="errors.email = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.email ? 'border-rose-500' : 'border-gray-300',
-                                        'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                        'focus:border-fun-blue-500 focus:bg-white focus:ring-2 focus:ring-fun-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
                                     ]" />
                                     <p v-if="errors.email" class="text-red-500 text-sm mt-1">Valid email is required.</p>
                                 </div>
@@ -67,7 +67,7 @@
                                     <input type="text" v-model="form.subject" @input="errors.subject = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.subject ? 'border-rose-500' : 'border-gray-300',
-                                        'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                        'focus:border-fun-blue-500 focus:bg-white focus:ring-2 focus:ring-fun-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
                                     ]" />
                                     <p v-if="errors.subject" class="text-red-500 text-sm mt-1">Subject is required.</p>
                                 </div>
@@ -78,7 +78,7 @@
                                     <textarea v-model="form.message" @input="errors.message = false" :class="[
                                         'w-full bg-gray-100 bg-opacity-50 rounded-md border',
                                         errors.message ? 'border-rose-500' : 'border-gray-300',
-                                        'focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out'
+                                        'focus:border-fun-blue-500 focus:bg-white focus:ring-2 focus:ring-fun-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out'
                                     ]" />
                                     <p v-if="errors.message" class="text-red-500 text-sm mt-1">Message is required.</p>
                                 </div>

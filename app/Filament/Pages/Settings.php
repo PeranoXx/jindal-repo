@@ -47,11 +47,11 @@ class Settings extends Page
                 FileUpload::make('logo')
                     ->image()
                     ->directory('settings')
-                    ->visibility('public'),
+                    ->visibility('public')->optimize('webp'),
                 FileUpload::make('favicon')
                     ->image()
                     ->directory('settings')
-                    ->visibility('public'),
+                    ->visibility('public')->optimize('webp'),
             ])
             ->statePath('data');
     }

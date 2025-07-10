@@ -50,7 +50,7 @@ class TeamResource extends Resource
                     ])->imageEditorViewportWidth(300) // Optional: preview size
                     ->imageEditorViewportHeight(300)
                     ->imageEditorMode(1)->imageResizeMode('cover')
-                    ->imageCropAspectRatio('1:1'),
+                    ->imageCropAspectRatio('1:1')->optimize('webp'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)

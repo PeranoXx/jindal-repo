@@ -1,5 +1,5 @@
 <template>
-     <div class="bg-neutral-900 py-20">
+     <div class="bg-custom py-10 xl:py-20">
       <div class="mx-10 mt-10 lg:mx-20 lg:mt-0 gap-4 xl:w-7xl xl:mx-auto">
         <div class="flex flex-col lg:flex-row gap-15 lg:gap-30 justify-between">
           <div class="text-4xl  text-white pt-10">
@@ -12,16 +12,16 @@
             <div class="py-4">
               <ul class="text-white">
                 <li class="py-2">
-                  <router-link :to="{ name: 'home', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
+                  <router-link :to="{ name: 'home', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Home</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'about-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
+                  <router-link :to="{ name: 'about-us', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">About Us</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
+                  <router-link :to="{ name: 'shade-cards', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Shade Cards</router-link>
                 </li>
                 <li class="py-2">
-                  <router-link :to="{ name: 'contact-us', }" class="relative after:bg-orange-400 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
+                  <router-link :to="{ name: 'contact-us', }" class="relative after:bg-fun-blue-500 transition-all after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 cursor-pointer">Contact Us</router-link>
                 </li>
               </ul>
             </div>
@@ -29,7 +29,7 @@
           <div class="text-xl flex-1">
             <div class="text-neutral-400">How To Reach</div>
             <div class="py-4">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14883.856825188137!2d72.7978953113254!3d21.15382270028417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be051ffd68cfdfd%3A0x50eef593fa09ce97!2sAlthan%2C%20Surat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1750088030449!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6257.9417504878975!2d72.8447192684154!3d21.15262005306969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be051007e468cc5%3A0xb0345a881cdb62c!2sLaxmi%20Narayan%20Industries!5e0!3m2!1sen!2sin!4v1751288550891!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
     <div class="bg-neutral-950">
         <div class="flex py-2 mx-5 xl:w-7xl xl:mx-auto justify-center">
             <div class="text-gray-200 text-sm">
-              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by JINDAL 777 PVT. LTD. &nbsp;&nbsp; Designed By <a class="text-orange-400" href="https://portfolio-parth.vercel.app/" target="_blank">PeranoXx</a>
+              ©Copyrights {{ new Date().getFullYear() }} All Rights Reserved by JINDAL 777 PVT. LTD. &nbsp;&nbsp; Designed and Developed By <a class="text-fun-blue-500" href="https://portfolio-parth.vercel.app/" target="_blank">Parth Vakharia</a> & Vansh Vakharia
             </div>
         </div>
     </div>
@@ -48,3 +48,10 @@
 import logo from '../../../public/logo/Jindal_logo.jpg';
 
 </script>
+
+<style scoped>
+.bg-custom{
+  background: #104E94;
+  background: linear-gradient(90deg,rgba(16, 78, 148, 1) 0%, rgba(13, 36, 68, 1) 100%);
+}
+</style>

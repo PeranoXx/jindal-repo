@@ -46,7 +46,7 @@ class CarouselResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required()->disk('public')
-                    ->directory('carousels')->visibility('public')->columnSpanFull(),
+                    ->directory('carousels')->visibility('public')->columnSpanFull()->optimize('webp'),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
