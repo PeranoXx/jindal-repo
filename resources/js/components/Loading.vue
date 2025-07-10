@@ -22,7 +22,7 @@ setTimeout(() => {
   setTimeout(() => {
     showLoader.value = false;
   }, 700); // match duration-700
-}, 30000);
+}, 3000);
 
 onMounted(() => {
   if ('scrollRestoration' in history) {
