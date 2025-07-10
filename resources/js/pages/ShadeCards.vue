@@ -49,7 +49,8 @@
                     <button :disabled="currentPage === lastPage" @click="fetchShadeCards(currentPage + 1)" class="px-3 py-1 rounded bg-fun-blue-400 text-white disabled:opacity-50">Next</button>
                 </div> -->
 
-                <div v-if="pagination.length > 0" class="flex justify-center mt-8 space-x-2 bg-gray-200 rounded-lg p-2">
+                <div class="flex justify-center">
+                <div v-if="pagination.length > 0" class="flex mt-8 space-x-2 bg-gray-200 rounded-lg p-2 overflow-x-auto">
                     <div v-for="(page, index) in pagination" :key="page" class="flex items-center justify-center">
                         <button v-if="page.label == 'Previous'" @click="fetchShadeCards(currentPage - 1)" :disabled="currentPage === 1" >
                             <span  class="rounded-full w-10 h-10 cursor-pointer" :class="[page.active ? 'bg-fun-blue-600 text-white' : 'bg-white text-fun-blue-800 cursor-pointer']">
@@ -75,6 +76,7 @@
                         </button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>
