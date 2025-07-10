@@ -3,7 +3,7 @@
     'bg-white absolute z-50 top-0 w-full h-screen flex justify-center items-center transition-transform duration-700',
     !loading ? '-translate-y-full' : 'translate-y-0'
   ]">
-    <div class="loader"></div>
+    <div class="loader text-6xl md:text-[100px]"></div>
     <!-- <img :src="logo" alt="logo" class="w-1/2"> -->
   </div>
 </template>
@@ -22,7 +22,7 @@ setTimeout(() => {
   setTimeout(() => {
     showLoader.value = false;
   }, 700); // match duration-700
-}, 3000);
+}, 30000);
 
 onMounted(() => {
   if ('scrollRestoration' in history) {
@@ -52,7 +52,7 @@ watch(loading, (val) => {
 <style scoped>
 .loader {
   width: fit-content;
-  font-size: 100px;
+  /* font-size: 100px; */
   line-height: 1.5;
   font-family: system-ui, sans-serif;
   font-weight: bold;
