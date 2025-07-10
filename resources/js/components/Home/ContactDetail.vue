@@ -13,8 +13,8 @@
                   </span>
                 </div>
                 <div class="text-lg sm:text-xl hover:text-fun-blue-500 transition-all duration-200 text-gray-700">
-                  <a href="tel:9824164466" class="break-all">
-                    +91 9824164466
+                  <a href="tel:9824146466" class="break-all">
+                    +91 98241 46466
                   </a>
                 </div>
               </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="text-lg sm:text-xl hover:text-fun-blue-500 transition-all duration-200 text-gray-700">
                   <a href="tel:8849544731" class="break-all">
-                    +91 8849544731
+                    +91 88495 44731
                   </a>
                 </div>
               </div>

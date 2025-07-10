@@ -103,11 +103,11 @@
 
                     <!-- Static Links -->
                     <li>
-                        <router-link :to="{ name: 'home' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Home</router-link>
+                        <router-link :to="{ name: 'home' }" @click="toggleSidebar" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Home</router-link>
                     </li>
 
                     <li>
-                        <router-link :to="{ name: 'about-us' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">About Us</router-link>
+                        <router-link :to="{ name: 'about-us' }" @click="toggleSidebar" class="block px-2 py-2 rounded hover:bg-gray-100 transition">About Us</router-link>
                     </li>
 
                     <!-- Dropdown -->
@@ -134,7 +134,7 @@
                                     <transition name="slide-down">
                                         <ul v-if="child.products && openSub[idx]" class="ml-4 mt-2 space-y-2 text-sm text-gray-600">
                                             <li v-for="(sub, sIdx) in child.products" :key="sIdx">
-                                                <router-link :to="{ name: 'product', params: {slug : sub.slug} }" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.name }}</router-link>
+                                                <router-link :to="{ name: 'product', params: {slug : sub.slug} }" @click="toggleSidebar" class="block py-1 px-2 rounded hover:bg-gray-100">{{ sub.name }}</router-link>
                                             </li>
                                         </ul>
                                     </transition>
@@ -143,10 +143,10 @@
                         </transition>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'shade-cards' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Shade Cards</router-link>
+                        <router-link :to="{ name: 'shade-cards' }"  @click="toggleSidebar" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Shade Cards</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'home' }" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Contact Us</router-link>
+                        <router-link :to="{ name: 'contact-us' }" @click="toggleSidebar" class="block px-2 py-2 rounded hover:bg-gray-100 transition">Contact Us</router-link>
                     </li>
 
                 </ul>

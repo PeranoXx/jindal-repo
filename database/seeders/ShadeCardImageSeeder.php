@@ -14,7 +14,7 @@ class ShadeCardImageSeeder extends Seeder
      */
     public function run(): void
     {
-        $folderPath = storage_path('app/public/Jindal-shade-card-final-image');
+        $folderPath = storage_path('app/public/Jindal-shade-card-image');
         $files = File::files($folderPath);
 
         foreach ($files as $file) {
